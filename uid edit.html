@@ -1,150 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Neon Background</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="google-site-verification" content="34rTSmNCb06guQsr0aM-Aqkto7Tr-dfzi2NxLLjejWo" />
+
+  <title>Hassan's Private Driver London - Luxury & Professional Chauffeur Services</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      overflow: hidden;
-      background: radial-gradient(circle at center, #000000, #120000, #240000);
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      position: relative;
+      color: #fff;
+      background: linear-gradient(135deg, #d4f1f9, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      scroll-behavior: smooth;
+    }
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    /* Neon Sparks Animation */
-    .spark {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: red;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: fly 5s linear infinite;
+    .navbar {
+      position: fixed; top: 0; width: 100%;
+      padding: 12px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,255,255,.2); backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+    .navbar-brand {font-size: 1.5em; font-weight: 700; color: #004aad;}
+    .navbar-links a {margin-left: 20px; color: #fff; transition: .3s;}
+    .navbar-links a:hover {color: #b3e5ff;}
+
+    .hero {
+      height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; padding: 0 20px;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(4px);
+    }
+    .hero h1 {
+      font-size: 3em;
+      background: linear-gradient(to right, #004aad, #0099ff, #66d9ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,.6);
+    }
+    .cta-button {
+      margin-top: 25px; padding: 14px 32px; border: none;
+      border-radius: 50px; font-weight: bold; color: #004aad;
+      background: linear-gradient(45deg, #ffffff, #c2e9fb);
+      box-shadow: 0 0 20px rgba(173,216,230,.6);
+      transition: .3s;
+    }
+    .cta-button:hover {transform: scale(1.05); box-shadow: 0 0 25px rgba(255,255,255,.9);}
+
+    .section {padding: 70px 40px; text-align: center;}
+    h2 {
+      font-size: 2.5em;
+      background: linear-gradient(to right, #004aad, #66d9ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    h2::after {
+      content:''; display:block; width:80px; height:4px; background:#66d9ff;
+      margin:10px auto 20px;
     }
 
-    @keyframes fly {
-      0% {
-        transform: translateY(100vh) translateX(0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) translateX(calc(50vw - 200px));
-        opacity: 0;
-      }
+    .services-grid {
+      display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-top:30px;
+    }
+    .service-item {
+      background: rgba(255,255,255,.2);
+      border-radius: 12px; padding: 25px; width: 260px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.2);
+      transition:.3s; text-align:left;
+    }
+    .service-item:hover {transform: translateY(-8px); box-shadow: 0 12px 30px rgba(102,217,255,.5);}
+    .service-item h3 {color:#004aad;}
+
+    .footer {
+      background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+      padding: 30px 20px; text-align: center; color: #003366;
+    }
+    .footer h4 {color:#004aad; margin-bottom:15px;}
+    .footer a {color:#004aad; margin:0 10px; text-decoration:none; transition:.3s;}
+    .footer a:hover {color:#0099ff;}
+    .footer p {margin-top:15px; font-size:.9em;}
+
+    .quick-connect {
+      position: fixed; bottom: 25px; right: 25px;
+      display: flex; align-items: center;
+      background: linear-gradient(45deg,#0099ff,#66d9ff);
+      color: #fff; font-weight: 600; border-radius: 50px;
+      padding: 10px 18px; box-shadow: 0 6px 20px rgba(0,0,0,.3);
+      cursor: pointer; transition: all 0.3s ease;
+      z-index: 1500; animation: floatPulse 3s ease-in-out infinite;
+    }
+    .qc-icon {
+      background: #fff; color: #0099ff;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-right: 8px; animation: iconBounce 1.8s ease-in-out infinite;
+    }
+    .quick-connect span {font-size: 15px; white-space: nowrap;}
+    @keyframes floatPulse {
+      0%, 100% {transform: translateY(0); box-shadow: 0 6px 15px rgba(173,216,230,.4);}
+      50% {transform: translateY(-5px); box-shadow: 0 8px 25px rgba(173,216,230,.8);}
+    }
+    @keyframes iconBounce {0%, 100% {transform: translateY(0);}50% {transform: translateY(-4px);}}
+    @media (max-width: 768px) {
+      .navbar {flex-direction: column; padding: 12px 20px;}
+      .navbar-links {margin-top: 10px;}
+      .hero h1 {font-size: 2em;}
+      .section {padding: 50px 20px;}
+      .service-item {width: 90%;}
+      .quick-connect {bottom: 15px; right: 15px; padding: 8px 14px;}
+      .qc-icon {width: 32px; height: 32px; font-size: 16px;}
     }
 
-    /* YouTube Logo */
-    .logo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      box-shadow: 0 0 40px rgba(255, 0, 0, 0.9),
-                  0 0 100px rgba(255, 0, 0, 0.6);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      z-index: 2;
+    /* Login/Signup Modal */
+    #authModal {
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,.6);
+      display:flex; align-items:center; justify-content:center;
+      z-index:2000; display:none;
     }
-
-    .logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 80px rgba(255, 0, 0, 1),
-                  0 0 160px rgba(255, 0, 0, 0.8);
+    .auth-box {
+      background: rgba(255,255,255,.2);
+      padding: 30px; border-radius: 12px; width: 320px;
+      box-shadow: 0 0 20px rgba(255,255,255,.4);
     }
-
-    h1 {
-      margin-top: 25px;
-      color: white;
-      font-size: 1.5rem;
-      text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-      z-index: 2;
+    .auth-box h3 {
+      text-align:center; color:#004aad; margin-bottom:15px;
+    }
+    .auth-box input {
+      margin-bottom:10px; width:100%; padding:10px;
+      border:none; border-radius:6px;
+    }
+    .auth-box button {
+      width:100%; padding:10px; border:none;
+      border-radius:6px; background:#0099ff; color:#fff; font-weight:600;
+      transition:0.3s;
+    }
+    .auth-box button:hover {background:#66d9ff; color:#004aad;}
+    .switch-link {
+      display:block; margin-top:10px; text-align:center; color:#fff; cursor:pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Neon Sparks -->
-  <script>
-    const count = 60; // Number of sparks
-    for (let i = 0; i < count; i++) {
-      const spark = document.createElement("div");
-      spark.className = "spark";
-      spark.style.left = Math.random() * 100 + "vw";
-      spark.style.animationDuration = 3 + Math.random() * 3 + "s";
-      spark.style.animationDelay = Math.random() * 5 + "s";
-      spark.style.background = Math.random() > 0.5 ? "red" : "#ff3b3b";
-      document.body.appendChild(spark);
-    }
-  </script>
 
-  <!-- YouTube Logo -->
-  <img 
-    src="https://yt3.googleusercontent.com/HiWYvJKbI0RB9wQWI2YbXmJmXGOYQBBF4bM4x7jy30Sfjty0Feh4buQakdjxR0o3SMhkCcq1rQ=s160-c-k-c0x00ffffff-no-rj"
-    alt="YouTube Logo"
-    class="logo"
-  >
-  <h1>Right-click → Save Logo</h1>
-</body>
-</html>        uidDisplay.innerHTML = "⚠️ UID not found.";
-        return;
-      }
+<!-- Login System Modal -->
+<div id="authModal">
+  <div class="auth-box" id="loginBox">
+    <h3>Login</h3>
+    <input type="text" id="loginUser" placeholder="Username" required>
+    <input type="password" id="loginPass" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <span class="switch-link" onclick="showSignup()">Create Account</span>
+  </div>
 
-      oldUidBytes = [];
-      let value = 0, shift = 0;
-      for (let i = uidOffset; i < originalBuffer.length; i++) {
-        let byte = originalBuffer[i];
-        oldUidBytes.push(byte);
-        value |= (byte & 0x7F) << shift;
-        if ((byte & 0x80) === 0) break;
-        shift += 7;
-      }
+  <div class="auth-box" id="signupBox" style="display:none;">
+    <h3>Sign Up</h3>
+    <input type="text" id="signupUser" placeholder="Username" required>
+    <input type="password" id="signupPass" placeholder="Password" required>
+    <button onclick="signup()">Sign Up</button>
+    <span class="switch-link" onclick="showLogin()">Already have account? Login</span>
+  </div>
+</div>
 
-      uidDisplay.style.display = "block";
-      uidDisplay.innerHTML = `Found UID: <b>${value}</b> (0x${value.toString(16).toUpperCase()})`;
-      newUidInput.style.display = "block";
-      replaceBtn.style.display = "inline-block";
-    });
+<!-- Main Website -->
+<div id="mainSite" style="display:none;">
+  <header class="navbar">
+    <a href="#home" class="navbar-brand">Hassan Chauffeur</a>
+    <nav class="navbar-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    function encodeVarInt(num) {
-      const bytes = [];
-      while (num > 127) {
-        bytes.push((num & 0x7F) | 0x80);
-        num >>>= 7;
-      }
-      bytes.push(num);
-      return bytes;
-    }
+  <div class="hero" id="home">
+    <h1>Luxury Private Driver Service in London</h1>
+    <p>Professional & reliable chauffeur services in the heart of the UK.</p>
+    <a href="#contact" class="cta-button">Book Now</a>
+  </div>
 
-    replaceBtn.addEventListener("click", () => {
-      const newUid = parseInt(newUidInput.value);
-      if (isNaN(newUid)) return alert("Please enter a valid UID number!");
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item"><h3>Airport Transfers</h3><p>Pickups & drop-offs at Heathrow, Gatwick, Stansted, City Airport.</p></div>
+      <div class="service-item"><h3>City Tours</h3><p>Explore London's landmarks and hidden gems with a local driver.</p></div>
+      <div class="service-item"><h3>Corporate Travel</h3><p>Discreet transport for meetings, conferences & executive travel.</p></div>
+      <div class="service-item"><h3>Special Occasions</h3><p>Luxury rides for weddings, proms, concerts & parties.</p></div>
+    </div>
+  </section>
 
-      const newUidBytes = encodeVarInt(newUid);
-      const output = new Uint8Array(originalBuffer.length - oldUidBytes.length + newUidBytes.length);
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>We provide premium chauffeur service ensuring comfort, punctuality & professionalism. Available 24/7.</p>
+  </section>
 
-      let uidStart = originalBuffer.indexOf(oldUidBytes[0]);
-      output.set(originalBuffer.slice(0, uidStart), 0);
-      output.set(newUidBytes, uidStart);
-      output.set(originalBuffer.slice(uidStart + oldUidBytes.length), uidStart + newUidBytes.length);
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:ghostgi362@gmail.com">ghostgi362@gmail.com</a></p>
+    <p>Phone: <a href="tel:+447842693753">📞 +447842693753</a></p>
+  </section>
 
-      const blob = new Blob([output], { type: "application/octet-stream" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "edited_" + (fileInput.files[0]?.name || "file.bytes");
-      link.click();
-    });
-  </script>
+  <footer class="footer">
+    <h4>Hassan's Private Driver</h4>
+    <p>&copy; 2025 Hassan's Private Driver. All rights reserved.</p>
+  </footer>
+
+  <div class="quick-connect" onclick="window.open('https://wa.me/447842693753','_blank')">
+    <div class="qc-icon">💬</div><span>Quick Connect</span>
+  </div>
+</div>
+
+<script>
+function showSignup() {
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('signupBox').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('signupBox').style.display = 'none';
+  document.getElementById('loginBox').style.display = 'block';
+}
+
+function signup() {
+  const u = document.getElementById('signupUser').value;
+  const p = document.getElementById('signupPass').value;
+  if(u && p){
+    localStorage.setItem('user', u);
+    localStorage.setItem('pass', p);
+    alert('Account created! Please login.');
+    showLogin();
+  } else alert('Please fill all fields.');
+}
+
+function login() {
+  const u = document.getElementById('loginUser').value;
+  const p = document.getElementById('loginPass').value;
+  const lu = localStorage.getItem('user');
+  const lp = localStorage.getItem('pass');
+  if(u === lu && p === lp){
+    const code = Math.floor(1000 + Math.random() * 9000);
+    const entered = prompt("Enter verification code: " + code);
+    if(entered == code){
+      localStorage.setItem('loggedIn', 'true');
+      document.getElementById('authModal').style.display = 'none';
+      document.getElementById('mainSite').style.display = 'block';
+    } else alert('Incorrect verification code!');
+  } else alert('Invalid username or password.');
+}
+
+window.onload = function(){
+  if(localStorage.getItem('loggedIn') === 'true'){
+    document.getElementById('authModal').style.display = 'none';
+    document.getElementById('mainSite').style.display = 'block';
+  } else {
+    document.getElementById('authModal').style.display = 'flex';
+  }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
